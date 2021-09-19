@@ -9,6 +9,9 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.Paint.ANTI_ALIAS_FLAG
 import android.graphics.RectF
+import android.graphics.drawable.GradientDrawable
+import android.graphics.drawable.ShapeDrawable
+import android.graphics.drawable.StateListDrawable
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
@@ -79,7 +82,8 @@ class SegmentedControlGroup @JvmOverloads constructor(
         dividerMargin = resources.getDimensionPixelSize(R.dimen.spacing_internal_medium)
 
         orientation = HORIZONTAL
-        background = ContextCompat.getDrawable(context, R.drawable.background_rounded_empty)
+        val backgroundDrawable = ContextCompat.getDrawable(context, R.drawable.background_rounded_empty) as StateListDrawable
+        background = backgroundDrawable
         setPadding(0, padding, 0, padding)
 
         sliderRadius = resources.getDimensionPixelSize(R.dimen.radius_extra_small).toFloat()
